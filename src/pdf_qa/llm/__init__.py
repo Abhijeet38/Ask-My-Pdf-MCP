@@ -6,8 +6,6 @@ Two providers supported in this build:
 
 Optional auto-fallback: set `LLM_FALLBACK=ollama` and any failure during the
 primary provider's `generate()` call will be retried on the fallback once.
-This is the recommended way to use Ollama as a safety net for Bedrock when
-AWS creds expire mid-session or the gamma cluster throttles.
 """
 
 from __future__ import annotations

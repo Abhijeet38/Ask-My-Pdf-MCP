@@ -338,7 +338,7 @@ All config is read from environment variables. See `.env.example`.
 
 ## 7. Example interaction log
 
-All transcripts captured live from the running MCP server, Bedrock Claude Haiku 4.5, gamma OpenSearch cluster.
+All transcripts captured live from the running MCP server, Bedrock Claude Haiku 4.5, OpenSearch cluster.
 
 ### Example 1 — single-document factual query
 
