@@ -1,0 +1,33 @@
+# Single-node OpenSearch for local development.
+# Storage is ephemeral on purpose - per project decision, persistence is not a goal.
+# Bring up:    docker compose up -d
+# Tear down:   docker compose down
+services:
+  opensearch:
+    image: opensearchproject/opensearch:2.15.0
+    container_name: pdf-qa-opensearch
+    environment:
+      - cluster.name=pdf-qa-cluster
+      - node.name=pdf-qa-node
+      - discovery.type=single-node
+      - bootstrap.memory_lock=true
+      - "OPENSEARCH_JAVA_OPTS=-Xms1g -Xmx1g"
+      # disable the demo security plugin so reviewers don't need TLS or admin password
+      - "DISABLE_SECURITY_PLUGIN=true"
+      - "DISABLE_INSTALL_DEMO_CONFIG=true"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+      nofile:
+        soft: 65536
+        hard: 65536
+    ports:
+      - "9200:9200"
+      - "9600:9600"
+    healthcheck:
+      test: ["CMD-SHELL", "curl -fsS http://localhost:9200/_cluster/health || exit 1"]
+      interval: 5s
+      timeout: 3s
+      retries: 30
+      start_period: 30s

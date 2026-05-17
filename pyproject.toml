@@ -1,0 +1,62 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pdf-qa-mcp"
+version = "0.1.0"
+description = "MCP server that answers natural-language questions grounded in a corpus of PDFs"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Abhijit" }]
+dependencies = [
+    # MCP server framework
+    "mcp>=1.2.0",
+
+    # PDF parsing
+    "pymupdf>=1.24.0",         # fast text extraction with page numbers
+    "pdfplumber>=0.11.0",      # tables
+
+    # Embeddings (local)
+    "sentence-transformers>=3.0.0",
+    "torch>=2.1.0",
+
+    # Vector + lexical store
+    "opensearch-py>=2.6.0",
+
+    # LLM SDKs (lazy-imported in providers; install only what you need)
+    "boto3>=1.34.0",           # Bedrock (default provider)
+    "httpx>=0.27.0",           # Ollama and other HTTP-based fallbacks
+
+    # Utilities
+    "tiktoken>=0.7.0",         # token counting for chunker (LLM context budget)
+    "tqdm>=4.66.0",
+    "pydantic>=2.7.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0.0",
+    "pytest-asyncio>=0.23.0",
+    "ruff>=0.5.0",
+]
+
+[project.scripts]
+pdf-qa-server = "pdf_qa.__main__:main"
+pdf-qa-ingest = "scripts.ingest_all:main"
+pdf-qa-smoke = "scripts.smoke_test:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-dir]
+"" = "src"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-v --tb=short"
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
