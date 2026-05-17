@@ -18,7 +18,7 @@ Built for a take-home spec: *"Build a working MCP server that exposes a Q&A tool
 
 ```bash
 # 1. Clone and enter the project
-git clone <repo-url> mcp-pdf-qa
+git clone https://github.com/abhijeetkumar/mcp-pdf-qa.git mcp-pdf-qa
 cd mcp-pdf-qa
 
 # 2. Create a venv and install
