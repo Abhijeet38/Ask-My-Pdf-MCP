@@ -2,7 +2,7 @@
 
 ## Overview
 
-The evaluation dataset lives in `AbhijjjPlayground/mcp-ask-pdf/data/*/` with one JSONL file per PDF document.
+The evaluation dataset lives in `abhijeet/mcp-ask-pdf/data/*/` with one JSONL file per PDF document.
 
 | Metric | Value |
 |--------|-------|
