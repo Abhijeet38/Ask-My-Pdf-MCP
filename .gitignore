@@ -18,11 +18,6 @@ env/
 .env
 .env.local
 
-# Data
-data/*.pdf
-data/*.jsonl
-data/*/
-
 # Logs and caches
 *.log
 .cache/
