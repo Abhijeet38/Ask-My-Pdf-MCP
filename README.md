@@ -1,6 +1,6 @@
 # pdf-qa-mcp
 
-A local MCP server that answers natural-language questions grounded in a corpus of PDFs. Retrieval is hybrid (lexical BM25 + dense k-NN with reciprocal-rank fusion) over OpenSearch; answers are synthesized by Amazon Bedrock (Claude) with optional Ollama fallback, returned with per-source page citations.
+A local MCP server that answers natural-language questions grounded in a corpus of PDFs. Retrieval is hybrid (lexical BM25 + dense k-NN with reciprocal-rank fusion) over OpenSearch; answers are synthesized by Bedrock (Claude) with optional Ollama fallback, returned with per-source page citations.
 
 ---
 
