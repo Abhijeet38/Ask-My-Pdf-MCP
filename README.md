@@ -3,6 +3,11 @@
 A local MCP server that answers natural-language questions grounded in a corpus of PDFs. Retrieval is hybrid (lexical BM25 + dense k-NN with reciprocal-rank fusion) over OpenSearch; answers are synthesized by Bedrock (Claude) with optional Ollama fallback, returned with per-source page citations.
 
 ---
+# Demo
+
+https://github.com/user-attachments/assets/f36a694a-a65c-4615-912c-fec767621770
+
+---
 
 ## 1. Setup — from scratch
 
